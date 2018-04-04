@@ -1,0 +1,36 @@
+{
+  "name": "nralcm-quickstart",
+  "version": "1.0.0",
+  "description": "This is a quick start guide to start with nralcm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandip12081992/nralcm-quickstart.git"
+  },
+  "keywords": [
+    "node-typescript",
+    "nralcm",
+    "quickstart"
+  ],
+  "author": "Sandip Jaiswal <sandip12081992@gmail.com> (https://github.com/sandip12081992)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandip12081992/nralcm-quickstart/issues"
+  },
+  "homepage": "https://github.com/sandip12081992/nralcm-quickstart#readme",
+  "devDependencies": {
+    "n": "^2.1.8",
+    "nodemon": "^1.17.3",
+    "ts-node": "^5.0.1",
+    "typescript": "^2.8.1"
+  },
+  "dependencies": {
+    "@types/body-parser": "^1.16.8",
+    "@types/express": "^4.11.1",
+    "nralcm": "^1.0.0-alpha-2.5"
+  }
+}
