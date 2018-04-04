@@ -10,7 +10,7 @@ export class UserController extends BaseController {
         super();
     }
 
-    @Route(HttpMethod.GET,)
+    @Route(HttpMethod.GET)
     /**
      * api/user [Get]
      */
