@@ -61,3 +61,43 @@ Let say you are going to create an api for product.
 
  - product api is now available to consume. Open browser and type http://localhost:3000/api/product
 
+## Data Access Layer
+Normally applications interact with database to serve data. The logic of fetching data should not be in api method. nralcm provides dependency injection to inject data access layer class in the controller.
+These are the following steps to create data access layer:
+
+ - Create a file product.repository.ts in src/repository folder. Create a class ProductRepository and decorate with @Repository decorator. Every Repository should decorate Repository decorator. Repository decorator make repository class able to inject in controller via dependency injection.
+
+   
+
+	     import { Repository } from  "nralcm/decorators";
+	     import { User } from  "../models/user";
+	     @Repository()
+        export  class UserReposiory {
+	        private  static users: User[] = [];
+
+		    public getUsers() {
+			    return UserReposiory.users;
+		    }
+		    
+		    public newUser(user: User) {
+			    UserReposiory.users.push(user);
+			    return  true;
+		    }
+	    }
+
+ - Now use UserReposiory in UserController. Inbuilt dependency injection will inject dependecy of UserReposiory. 
+
+    	import { BaseController } from  "nralcm/lifecycle";
+        import { Controller, Route } from  "nralcm/decorators";
+        import { HttpMethod } from  "nralcm/common";
+        
+		@Controller()
+        export  class ProductController extends BaseController {
+	        constructor(private userRepository: UserRepository) {
+	        }
+	        
+	        @Route(HttpMethod.Get)
+	        public get() {
+		        return this.userRepository.getUsers();
+	        }
+        }
